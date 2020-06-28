@@ -2,9 +2,9 @@
 import scrapy
 import urllib
 
-
+# scrapy crawl Naukri 
 class NaukriSpider(scrapy.Spider):
-    name = 'naukri'
+    name = 'Naukri'
     allowed_domains = ['naukri.com']
     start_urls = ['https://www.naukri.com']
 
