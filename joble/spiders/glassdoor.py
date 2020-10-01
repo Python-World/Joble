@@ -17,7 +17,6 @@ class GlassdoorSpider(scrapy.Spider):
 
     def parse(self, response):
         elements = response.css('ul.jlGrid li.react-job-listing')
-        jobs = []
         
         for element in elements[:self.count]:
             job = {
@@ -26,6 +25,4 @@ class GlassdoorSpider(scrapy.Spider):
                 'employer': 'https://www.glassdoor.com' + element.css('div div.jobHeader a span::text').get(),
                 'job-link': element.css('div div.jobHeader a::attr(href)').get()
             }
-            jobs.append(job)
-        
-        print(jobs)
+            yield job
